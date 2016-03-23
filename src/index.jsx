@@ -9,9 +9,11 @@ import {ProjectsContainer} from './components/Projects';
 
 const socket = io(`${location.protocol}//${location.hostname}:8090`);
 socket.on('state', function (state) {
-        console.log('state received')
-    }
-);
+    return store.dispatch({
+        'type': 'SET_STATE',
+        'state': state
+    });
+});
 
 const store = configureStore();
 
