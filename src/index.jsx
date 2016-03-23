@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
-import {createStore} from 'redux';
 import {Provider} from 'react-redux';
+import configureStore from './store';
 import io from 'socket.io-client';
-import reducer from './reducer';
 import App from './components/App';
 import {ProjectsContainer} from './components/Projects';
 
@@ -14,7 +13,7 @@ socket.on('state', function (state) {
     }
 );
 
-const store = createStore(reducer);
+const store = configureStore();
 
 const routes = <Route component={App}>
     <Route path="/" component={ProjectsContainer}/>
