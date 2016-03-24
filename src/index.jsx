@@ -6,14 +6,26 @@ import configureStore from './store';
 import io from 'socket.io-client';
 import App from './components/App';
 import {ProjectsContainer} from './components/Projects';
+import setState from './action/setState';
+import setConnectionState from './action/setConnectionState'
 
 const socket = io(`${location.protocol}//${location.hostname}:8090`);
 socket.on('state', function (state) {
-    return store.dispatch({
-        'type': 'SET_STATE',
-        'state': state
-    });
+    console.log('state', state);
+    store.dispatch(setState(state));
 });
+
+[
+    'connect',
+    'connect_error',
+    'connect_timeout',
+    'reconnect',
+    'reconnecting',
+    'reconnect_error',
+    'reconnect_failed'
+].forEach(ev =>
+    socket.on(ev, () => store.dispatch(setConnectionState(ev, socket.connected)))
+);
 
 const store = configureStore();
 
@@ -27,3 +39,5 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('app')
 );
+
+
