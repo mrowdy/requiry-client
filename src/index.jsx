@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import configureStore from './store';
 import io from 'socket.io-client';
 import App from './components/App';
-import {ProjectsContainer} from './components/Projects';
+import {ProductsContainer} from './containers/ProductsContainer.jsx';
 import {setState, setConnectionState} from './actions';
 
 const socket = io(`${location.protocol}//${location.hostname}:8090`);
@@ -28,7 +28,7 @@ socket.on('state', function (state) {
 const store = configureStore();
 
 const routes = <Route component={App}>
-    <Route path="/" component={ProjectsContainer}/>
+    <Route path="/" component={ProductsContainer}/>
 </Route>;
 
 ReactDOM.render(

@@ -1,6 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {Map} from 'immutable';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 export const ConnectionState = React.createClass({
@@ -18,8 +16,3 @@ export const ConnectionState = React.createClass({
         </div>
     }
 });
-
-
-export const ConnectionStateContainer = connect(
-    state => state.get('connection', Map()).toJS()
-)(ConnectionState);
