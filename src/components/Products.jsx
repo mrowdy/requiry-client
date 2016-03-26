@@ -11,7 +11,7 @@ export default React.createClass({
         return !this.getProducts().length > 0;
     },
     render: function() {
-        return <div class="product-list">
+        return <div className="product-list">
             <h1>Products Page</h1>
             {this.getProducts().map(product =>
                 <Product {...product}></Product>
@@ -23,7 +23,8 @@ export default React.createClass({
                 :
                 null
             }
-            <button className="product-list_create" onClick={() => this.props.onCreate()}>
+            <button className="product-list_create"
+                    onClick={() => this.props.onCreate ? this.props.onCreate() : null}>
                 Create product
             </button>
         </div>;

@@ -63,6 +63,10 @@ describe('Products', () => {
         expect(created).to.be.ok;
     });
 
-
+    it('it doesnt fail without onCreate prop', () => {
+        const component = renderIntoDocument(<Products/>);
+        const button = scryRenderedDOMComponentsWithClass(component, 'product-list_create');
+        Simulate.click(button[0]);
+    });
 
 });
