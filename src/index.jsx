@@ -6,8 +6,7 @@ import configureStore from './store';
 import io from 'socket.io-client';
 import App from './components/App';
 import {ProjectsContainer} from './components/Projects';
-import setState from './action/setState';
-import setConnectionState from './action/setConnectionState'
+import {setState, setConnectionState} from './actions';
 
 const socket = io(`${location.protocol}//${location.hostname}:8090`);
 socket.on('state', function (state) {
