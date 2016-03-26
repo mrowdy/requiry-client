@@ -8,7 +8,7 @@ export default React.createClass({
     },
     render: function() {
         return <div className="product">
-            <h2 className="product__name">{this.getName()}</h2>
+            <h2 className="product_name">{this.getName()}</h2>
         </div>
     }
 });
