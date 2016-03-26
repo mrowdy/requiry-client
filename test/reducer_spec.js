@@ -25,20 +25,22 @@ describe('reducer', () => {
         expect(nextState).to.equal(Map());
     });
 
-    it('it replaces state on set state', () => {
-        const oldState = {
+    it('it merges state on set state', () => {
+        const oldState = Map({
             'foo': 'bar'
-        };
+        });
 
-        const newState = {
+        const newState = Map({
             'bar': 'foo'
-        }
+        });
+
+        const merged = oldState.merge(newState);
 
         const action = {
             type: SET_STATE,
             state: newState
         };
         const nextState = reducer(oldState, action);
-        expect(nextState).to.equal(newState);
+        expect(nextState).to.equal(merged);
     });
 });

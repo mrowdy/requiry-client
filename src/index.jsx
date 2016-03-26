@@ -10,7 +10,6 @@ import {setState, setConnectionState} from './actions';
 
 const socket = io(`${location.protocol}//${location.hostname}:8090`);
 socket.on('state', function (state) {
-    console.log('state', state);
     store.dispatch(setState(state));
 });
 

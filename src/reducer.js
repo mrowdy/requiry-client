@@ -19,5 +19,5 @@ function setConnectionState(state, connectionState, connected) {
 }
 
 function setState(state, newState){
-    return newState;
+    return state.merge(newState);
 }
