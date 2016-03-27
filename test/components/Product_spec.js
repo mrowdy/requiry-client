@@ -15,6 +15,4 @@ describe('Product', () => {
         const div = findRenderedDOMComponentWithTag(component, 'div');
         expect(div.textContent).to.contain(name);
     });
-
-
 });

@@ -14,7 +14,9 @@ export default React.createClass({
         return <div className="product-list">
             <h1>Products Page</h1>
             {this.getProducts().map(product =>
+                <div key={product.id}>
                 <Product {...product}></Product>
+                    </div>
             )}
             {this.isEmpty() ?
                 <div className="product-list_empty">
