@@ -1,6 +1,7 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Product from './Product';
+import ProductForm from './ProductForm.jsx';
 
 export default React.createClass({
     mixins: [PureRenderMixin],
@@ -13,6 +14,7 @@ export default React.createClass({
     render: function() {
         return <div className="product-list">
             <h1>Products Page</h1>
+            <ProductForm />
             {this.getProducts().map(product =>
                 <div key={product.id}>
                 <Product {...product}></Product>
